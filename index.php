@@ -60,15 +60,7 @@
             'name' => $_GET['name'],
             'mail' => $_GET['mail'],
             'age' => $_GET['age'],
-        ]
-
-        // if ((strlen($user['name']) > 3) && (str_contains($user['mail'], '@'))) && (is_nan($user['age'])) {
-        //     echo 'Access Granted';
-
-        // }else{
-        //     echo 'Access Denied';
-            
-        // }
+        ];
     ?>
 
 
@@ -89,10 +81,31 @@
     </form>
 
     <?php 
+
         if (strlen($user['name']) > 3 && !is_nan($user['age']) && preg_match("/(@|.)/i", $user['mail']))
             echo 'access granted';
         else 
             echo 'access denied';
     ?>
+<!-- ----------------------------------------------------------------------------------------------------------------------------- -->
+
+<?php 
+/* Snack 3
+Creare un array con 15 numeri casuali, tenendo conto che l’array non dovrà contenere lo stesso numero più di una volta
+*/
+
+    echo "<h2>Snack 3</h2>";
+    
+    $arrCasualNums = [];
+
+    for ($i=0 ; $i < 15 ; $i++ ) {
+        $rngNum = rand(1, 20);
+        if (!in_array($rngNum, $arrCasualNums)) {
+            $arrCasualNums[] = $rngNum;
+        }
+        echo $arrCasualNums[$i] . ' ';
+    };
+?>
+
 </body>
 </html>
