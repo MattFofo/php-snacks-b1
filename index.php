@@ -82,10 +82,11 @@
 
     <?php 
 
-        if (strlen($user['name']) > 3 && !is_nan($user['age']) && preg_match("/(@|.)/i", $user['mail']))
+        if (strlen($user['name']) > 3 && !is_int($user['age']) && (strpos($user['mail'], '@') !== false) && (strpos($user['mail'], '.')) !== false)
             echo 'access granted';
         else 
             echo 'access denied';
+
     ?>
 <!-- ----------------------------------------------------------------------------------------------------------------------------- -->
 
@@ -97,9 +98,13 @@ Creare un array con 15 numeri casuali, tenendo conto che l’array non dovrà co
     echo "<h2>Snack 3</h2>";
     
     $arrCasualNums = [];
+        
 
     for ($i=0 ; $i < 15 ; $i++ ) {
-        $rngNum = rand(1, 20);
+        if (count($arrCasualNums) <= 15) {
+            $rngNum = rand(1, 20);
+            # code...
+        }
         if (!in_array($rngNum, $arrCasualNums)) {
             $arrCasualNums[] = $rngNum;
         }
@@ -107,5 +112,6 @@ Creare un array con 15 numeri casuali, tenendo conto che l’array non dovrà co
     };
 ?>
 
+<!-- --------------------------------------------------------------------------------------------------------------------------- -->
 </body>
 </html>
