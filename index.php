@@ -93,21 +93,17 @@
 <?php 
 /* Snack 3
 Creare un array con 15 numeri casuali, tenendo conto che l’array non dovrà contenere lo stesso numero più di una volta
-*/
+*/  
+
 
     echo "<h2>Snack 3</h2>";
     
-    $arrCasualNums = [];
+    $arrCasualNums =  array_map(function () {
+        return rand(0, 100);
+    }, array_fill(0, 15, null));
         
-
+    
     for ($i=0 ; $i < 15 ; $i++ ) {
-        if (count($arrCasualNums) <= 15) {
-            $rngNum = rand(1, 20);
-            # code...
-        }
-        if (!in_array($rngNum, $arrCasualNums)) {
-            $arrCasualNums[] = $rngNum;
-        }
         echo $arrCasualNums[$i] . ' ';
     };
 ?>
